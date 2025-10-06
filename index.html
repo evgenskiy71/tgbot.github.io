@@ -13,120 +13,256 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
             padding: 20px;
+            color: #333;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             animation: fadeInDown 1s ease;
         }
 
         .header h1 {
             color: #8B4513;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3em;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: -1px;
         }
 
         .header p {
-            color: #666;
-            font-size: 1.1em;
+            color: #6c757d;
+            font-size: 1.2em;
+            font-weight: 300;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .product-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f1f3f4;
             animation: fadeInUp 0.6s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8B4513, #A0522D, #D2691E);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #e9d8c8;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #f8f9fa;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
             border-color: #8B4513;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.2);
         }
 
         .product-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 2.2em;
+            margin-bottom: 12px;
             text-align: center;
+            opacity: 0.9;
         }
 
         .product-name {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2d3748;
             margin-bottom: 8px;
             text-align: center;
+            letter-spacing: -0.5px;
         }
 
         .product-description {
-            color: #666;
+            color: #6c757d;
             text-align: center;
             margin-bottom: 15px;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         .product-price {
-            font-size: 1.4em;
-            font-weight: bold;
+            font-size: 1.5em;
+            font-weight: 700;
             color: #8B4513;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .buy-button {
             background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 14px 28px;
+            border-radius: 50px;
             font-size: 1em;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: block;
             margin: 0 auto;
-            width: 80%;
+            width: 85%;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
         }
 
         .buy-button:hover {
             background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Секция обратной связи */
+        .feedback-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f1f3f4;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .feedback-title {
+            text-align: center;
+            color: #8B4513;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .feedback-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #8B4513;
+            box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
         }
 
         .footer {
             text-align: center;
-            margin-top: 40px;
-            color: #888;
+            margin-top: 60px;
+            color: #adb5bd;
             font-size: 0.9em;
             animation: fadeIn 1s ease;
+            padding: 20px;
         }
 
         /* Анимации */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-50px);
             }
             to {
                 opacity: 1;
@@ -137,7 +273,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -157,15 +293,24 @@
         /* Адаптивность */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .product-card {
                 padding: 20px;
+            }
+            
+            .feedback-section {
+                padding: 25px;
+            }
+            
+            .feedback-title {
+                font-size: 1.8em;
             }
         }
 
@@ -177,9 +322,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.6);
             z-index: 1000;
             animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
@@ -188,101 +334,164 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border: 1px solid #f1f3f4;
         }
 
         .close-button {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5em;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8em;
             cursor: pointer;
-            color: #666;
+            color: #6c757d;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: #8B4513;
+        }
+
+        /* Уведомление */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>👜 Кожаные изделия</h1>
-            <p>Ручная работа • Натуральная кожа • Гарантия качества</p>
+            <h1>👜 Ателье кожи</h1>
+            <p>Искусство ручной работы • Натуральная кожа • Вечная классика</p>
         </div>
 
         <div class="products-grid" id="productsGrid">
             <!-- Товары будут добавлены через JavaScript -->
         </div>
 
+        <!-- Секция обратной связи -->
+        <div class="feedback-section">
+            <h2 class="feedback-title">💡 Ваша идея</h2>
+            <p class="feedback-subtitle">Поделитесь своими мыслями — помогите нам стать лучше</p>
+            
+            <div class="feedback-form">
+                <div class="form-group">
+                    <label class="form-label" for="userName">Ваше имя</label>
+                    <input type="text" id="userName" class="form-input" placeholder="Как к вам обращаться?">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="userIdea">Ваше предложение</label>
+                    <textarea id="userIdea" class="form-textarea" placeholder="Что бы вы хотели улучшить? Какой продукт мечтаете видеть? Ваши пожелания и идеи..."></textarea>
+                </div>
+                
+                <button class="submit-button" onclick="submitIdea()">
+                    📨 Отправить идею
+                </button>
+            </div>
+        </div>
+
         <div class="footer">
-            <p>© 2024 Кожаные изделия ручной работы. Все права защищены.</p>
+            <p>© 2024 Ателье кожи. Каждое изделие — история.</p>
         </div>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно заказа -->
     <div class="modal" id="orderModal">
         <div class="modal-content">
             <span class="close-button" id="closeModal">&times;</span>
-            <h2>Заказ товара</h2>
-            <p id="modalProductName"></p>
-            <p id="modalProductPrice"></p>
-            <p style="margin: 20px 0; color: #666;">Для заказа напишите нам в Telegram:</p>
-            <button class="buy-button" onclick="contactTelegram()">Написать в Telegram</button>
+            <h2 style="color: #8B4513; margin-bottom: 15px;">🎁 Заказ товара</h2>
+            <p id="modalProductName" style="font-size: 1.2em; font-weight: 600; margin-bottom: 8px;"></p>
+            <p id="modalProductPrice" style="font-size: 1.4em; color: #8B4513; font-weight: 700; margin-bottom: 25px;"></p>
+            <p style="margin: 20px 0; color: #6c757d; line-height: 1.5;">Для заказа напишите нам в Telegram — обсудим детали и доставку</p>
+            <button class="buy-button" onclick="contactTelegram()" style="width: 100%;">
+                💬 Написать в Telegram
+            </button>
         </div>
     </div>
 
+    <!-- Уведомление -->
+    <div class="notification" id="notification">
+        Идея отправлена! Спасибо за ваше предложение ✨
+    </div>
+
     <script>
-        // Данные товаров
+        // Данные товаров с изображениями
         const products = [
             {
-                icon: "👜",
+                icon: "📇",
                 name: "Секретарь",
                 description: "Просто картхолдер",
-                price: "1600₽"
+                price: "1600₽",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "👑",
                 name: "Цесаревич",
                 description: "Компактный бумажник",
-                price: "2900₽"
+                price: "2900₽",
+                image: "https://images.unsplash.com/photo-1601593346740-925612772716?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "💰",
                 name: "Цесаревич",
                 description: "С отделением для монет",
-                price: "3200₽"
+                price: "3200₽",
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "🎩",
                 name: "Боярин",
                 description: "Вместительный кошелек",
-                price: "4900₽"
+                price: "4900₽",
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "💼",
                 name: "Купец",
                 description: "Портмоне для карт, документов и купюр",
-                price: "4900₽"
+                price: "4900₽",
+                image: "https://images.unsplash.com/photo-1556742044-3c734aed4f1e?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "📁",
                 name: "Казначей",
                 description: "Зиппер для документов и карт",
-                price: "6500₽"
+                price: "6500₽",
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "🎒",
                 name: "Посыльный",
                 description: "Сумка через плечо",
-                price: "9900₽"
+                price: "9900₽",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop"
             },
             {
-                icon: "👜",
+                icon: "🛍️",
                 name: "Посыльный",
                 description: "С внешним карманом",
-                price: "10900₽"
+                price: "10900₽",
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=300&fit=crop"
             }
         ];
 
@@ -297,11 +506,12 @@
                 
                 card.innerHTML = `
                     <div class="product-icon">${product.icon}</div>
+                    <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop'">
                     <div class="product-name">${product.name}</div>
                     <div class="product-description">${product.description}</div>
                     <div class="product-price">${product.price}</div>
                     <button class="buy-button" onclick="openOrderModal('${product.name}', '${product.description}', '${product.price}')">
-                        Заказать
+                        🛒 Заказать
                     </button>
                 `;
                 
@@ -331,9 +541,40 @@
 
         // Контакт в Telegram
         function contactTelegram() {
-            // Здесь можно указать ссылку на ваш Telegram
-            // Например: window.open('https://t.me/your_username', '_blank');
-            alert('Свяжитесь с нами в Telegram для заказа!');
+            // Замените на вашу ссылку Telegram
+            window.open('https://t.me/your_username', '_blank');
+        }
+
+        // Отправка идеи
+        function submitIdea() {
+            const name = document.getElementById('userName').value;
+            const idea = document.getElementById('userIdea').value;
+            
+            if (!idea.trim()) {
+                alert('Пожалуйста, напишите вашу идею!');
+                return;
+            }
+            
+            // Здесь можно отправить данные на сервер
+            console.log('Идея от:', name || 'Аноним');
+            console.log('Предложение:', idea);
+            
+            // Показываем уведомление
+            showNotification();
+            
+            // Очищаем форму
+            document.getElementById('userName').value = '';
+            document.getElementById('userIdea').value = '';
+        }
+
+        // Показать уведомление
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
         }
 
         // Загрузка при старте
