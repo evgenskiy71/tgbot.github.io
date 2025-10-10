@@ -55,6 +55,221 @@
             font-weight: 300;
         }
 
+        /* Стили для корзины */
+        .cart-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+
+        .cart-button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            position: relative;
+        }
+
+        .cart-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff3838;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .cart-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: formAppear 0.4s ease;
+        }
+
+        .cart-header {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .cart-items {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #f1f3f4;
+            animation: slideInUp 0.3s ease;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #8B4513;
+            font-weight: 600;
+        }
+
+        .cart-item-remove {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .cart-item-remove:hover {
+            background: #ff3838;
+            transform: scale(1.1);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+
+        .cart-empty-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .cart-total {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        .cart-total-amount {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #8B4513;
+            margin: 10px 0;
+        }
+
+        .cart-actions {
+            padding: 0 20px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .cart-checkout-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .cart-checkout-btn:hover {
+            background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .cart-clear-btn {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-clear-btn:hover {
+            background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+            transform: translateY(-2px);
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -194,7 +409,29 @@
             box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
         }
 
-        /* Секция обратной связи - НОВАЯ АНИМАЦИЯ */
+        .add-to-cart-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 10px auto 0;
+            width: 85%;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .add-to-cart-btn:hover {
+            background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Секция обратной связи */
         .feedback-section {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border-radius: 20px;
@@ -256,10 +493,12 @@
             filter: brightness(1);
             animation: brightGlow 0.5s infinite alternate;
         }
-    .feedback-subtitle{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    }
+
+        .feedback-subtitle {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
         .feedback-form {
             max-width: 600px;
             margin: 0 auto;
@@ -423,31 +662,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2em;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .product-card {
-                padding: 20px;
-            }
-
-            .feedback-section {
-                padding: 25px;
-            }
-
-            .idea-trigger {
-                padding: 15px 30px;
-                font-size: 1.1em;
             }
         }
 
@@ -645,9 +859,60 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card {
+                padding: 20px;
+            }
+
+            .feedback-section {
+                padding: 25px;
+            }
+
+            .idea-trigger {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .cart-container {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .cart-button {
+                padding: 12px 16px;
+                font-size: 0.9em;
+            }
+            
+            .cart-modal-content {
+                width: 95%;
+            }
+            
+            .cart-actions {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Кнопка корзины -->
+    <div class="cart-container">
+        <button class="cart-button" onclick="openCart()">
+            🛒 Корзина
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+
     <div class="container">
         <div class="header">
             <img src="logo.jpg" alt="Логотип" class="header-logo">
@@ -659,7 +924,7 @@
             <!-- Товары будут добавлены через JavaScript -->
         </div>
 
-        <!-- Секция обратной связи - ПЕРЕРАБОТАНА -->
+        <!-- Секция обратной связи -->
         <div class="feedback-section">
             <button class="idea-trigger" onclick="toggleIdeaForm()">
                 <span class="lamp-icon">💡</span>
@@ -694,6 +959,67 @@
             <p>© 2025 Мастерская Королеевъ.<br>
                 Каждое изделие — история.</p>
             <span class="logo"><img src="logo.jpg" alt="Логотип" width="60" height="60"></span>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>🛒 Ваша корзина</h2>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Товары в корзине будут здесь -->
+            </div>
+            <div class="cart-total">
+                <div>Общая сумма:</div>
+                <div class="cart-total-amount" id="cartTotal">0₽</div>
+            </div>
+            <div class="cart-actions">
+                <button class="cart-checkout-btn" onclick="checkout()">
+                    💬 Заказать в Telegram
+                </button>
+                <button class="cart-clear-btn" onclick="clearCart()">
+                    🗑️ Очистить
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно формы клиента -->
+    <div class="modal" id="clientFormModal">
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close-button" onclick="closeClientForm()">&times;</span>
+            <h2 style="color: #8B4513; margin-bottom: 20px;">📋 Данные для заказа</h2>
+            
+            <div class="form-group">
+                <label class="form-label">Ваше имя *</label>
+                <input type="text" id="clientName" class="form-input" placeholder="Иван Иванов" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Ваш телефон *</label>
+                <input type="tel" id="clientPhone" class="form-input" placeholder="+79123456789" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Telegram username</label>
+                <input type="text" id="clientTelegram" class="form-input" placeholder="@username">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Комментарий к заказу</label>
+                <textarea id="clientComment" class="form-textarea" placeholder="Особые пожелания..." style="height: 80px;"></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="cart-clear-btn" onclick="closeClientForm()" style="flex: 1;">
+                    ❌ Отмена
+                </button>
+                <button class="cart-checkout-btn" onclick="submitOrderWithForm()" style="flex: 2;">
+                    ✅ Подтвердить заказ
+                </button>
+            </div>
         </div>
     </div>
 
@@ -738,15 +1064,15 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // Конфигурация - ЗАМЕНИТЕ ЭТИ ДАННЫЕ НА СВОИ!
+        // Конфигурация
         const CONFIG = {
-    telegram: {
-        botToken: '8449471435:AAFioeWUMF-dNrT6suM25ZysUzjDbYNDgH0',
-        chatIds: ['811349749', '123456789', '987654321'] // Добавь нужные chat_id
-    }
-};
+            telegram: {
+                botToken: '8449471435:AAFioeWUMF-dNrT6suM25ZysUzjDbYNDgH0',
+                chatIds: ['811349749', '471778229']
+            }
+        };
 
-        // Данные товаров с несколькими изображениями и описаниями
+        // Данные товаров
         const products = [
             {
                 icon: "📇",
@@ -932,6 +1258,210 @@
             imageIndex: 0
         };
 
+        // Корзина
+        let cart = [];
+
+        // Функции корзины
+        function addToCart(productIndex) {
+            const product = products[productIndex];
+            const existingItem = cart.find(item => item.id === productIndex);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productIndex,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            showNotification(`✅ "${product.name}" добавлен в корзину!`, 'success');
+        }
+
+        function removeFromCart(productIndex) {
+            cart = cart.filter(item => item.id !== productIndex);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            // Обновляем счетчик
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Обновляем список товаров
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <div class="cart-empty-icon">🛒</div>
+                        <p>Корзина пуста</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-description">${item.description}</div>
+                            <div class="cart-item-price">${item.price} × ${item.quantity}</div>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">×</button>
+                    </div>
+                `).join('');
+            }
+            
+            // Обновляем общую сумму
+            const total = cart.reduce((sum, item) => {
+                const price = parseInt(item.price.replace(/\D/g, ''));
+                return sum + (price * item.quantity);
+            }, 0);
+            cartTotal.textContent = `${total}₽`;
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            showNotification('🗑️ Корзина очищена', 'success');
+        }
+
+        // Показываем форму клиента
+        function showClientForm() {
+            document.getElementById('clientFormModal').style.display = 'block';
+        }
+
+        // Закрываем форму
+        function closeClientForm() {
+            document.getElementById('clientFormModal').style.display = 'none';
+        }
+
+        // Отправка заказа с данными из формы
+        async function submitOrderWithForm() {
+            const name = document.getElementById('clientName').value.trim();
+            const phone = document.getElementById('clientPhone').value.trim();
+            const telegram = document.getElementById('clientTelegram').value.trim();
+            const comment = document.getElementById('clientComment').value.trim();
+
+            if (!name || !phone) {
+                showNotification('❌ Заполните обязательные поля (имя и телефон)', 'error');
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => {
+                const price = parseInt(item.price.replace(/\D/g, ''));
+                return sum + (price * item.quantity);
+            }, 0);
+
+            let message = `🛍️ *НОВЫЙ ЗАКАЗ* 🛍️\n\n`;
+            message += `👤 *Клиент:* ${name}\n`;
+            message += `📞 *Телефон:* ${phone}\n`;
+            
+            if (telegram) {
+                const cleanTelegram = telegram.replace('@', '');
+                message += `💬 *Telegram:* [@${cleanTelegram}](https://t.me/${cleanTelegram})\n`;
+            }
+            
+            if (comment) {
+                message += `📝 *Комментарий:* ${comment}\n`;
+            }
+            
+            message += `\n📦 *Состав заказа:*\n`;
+            
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - ${item.description}\n`;
+                message += `   ${item.price} × ${item.quantity}\n\n`;
+            });
+            
+            message += `💰 *Общая сумма:* ${total}₽\n\n`;
+            message += `⏰ *Время заказа:* ${new Date().toLocaleString('ru-RU')}\n`;
+            message += `🎯 *Источник:* Web App`;
+
+            // Создаем кнопки для быстрой связи
+            const replyMarkup = {
+                inline_keyboard: []
+            };
+
+            if (telegram) {
+                const cleanTelegram = telegram.replace('@', '');
+                replyMarkup.inline_keyboard.push([
+                    {
+                        text: "💬 Написать в Telegram",
+                        url: `https://t.me/${cleanTelegram}`
+                    }
+                ]);
+            }
+
+            replyMarkup.inline_keyboard.push([
+                {
+                    text: "📞 Позвонить",
+                    url: `tel:${phone}`
+                }
+            ]);
+
+            try {
+                const sendPromises = CONFIG.telegram.chatIds.map(chatId => 
+                    fetch(`https://api.telegram.org/bot${CONFIG.telegram.botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown',
+                            reply_markup: replyMarkup
+                        })
+                    })
+                );
+
+                const results = await Promise.all(sendPromises);
+                const allSuccess = results.every(result => result.ok);
+
+                if (allSuccess) {
+                    showNotification('✅ Заказ отправлен! С вами свяжутся в Telegram ✨', 'success');
+                    clearCart();
+                    closeCart();
+                    closeClientForm();
+                    
+                    // Очищаем форму
+                    document.getElementById('clientName').value = '';
+                    document.getElementById('clientPhone').value = '';
+                    document.getElementById('clientTelegram').value = '';
+                    document.getElementById('clientComment').value = '';
+                } else {
+                    throw new Error('Ошибка отправки некоторым получателям');
+                }
+                
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showNotification('❌ Ошибка отправки заказа. Попробуйте еще раз.', 'error');
+            }
+        }
+
+        // Обновляем функцию checkout чтобы открывала форму
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('❌ Корзина пуста!', 'error');
+                return;
+            }
+            
+            showClientForm();
+        }
+
         // Загрузка товаров на страницу
         function loadProducts() {
             const grid = document.getElementById('productsGrid');
@@ -951,8 +1481,11 @@
                     <div class="product-name">${product.name}</div>
                     <div class="product-description" onclick="openDescription(${index})">${product.description}</div>
                     <div class="product-price">${product.price}</div>
+                    <button class="add-to-cart-btn" onclick="addToCart(${index})">
+                        🛒 В корзину
+                    </button>
                     <button class="buy-button" onclick="openOrderModal('${product.name}', '${product.description}', '${product.price}')">
-                        🛒 Заказать
+                        💬 Быстрый заказ
                     </button>
                 `;
 
@@ -1023,30 +1556,6 @@
             document.getElementById('orderModal').style.display = 'block';
         }
 
-        // Закрытие модальных окон
-        document.getElementById('closeModal').onclick = function() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-
-        document.getElementById('closeGallery').onclick = function() {
-            document.getElementById('galleryModal').style.display = 'none';
-        }
-
-        document.getElementById('closeDescription').onclick = function() {
-            document.getElementById('descriptionModal').style.display = 'none';
-        }
-
-        // Закрытие модальных окон при клике вне их
-        window.onclick = function(event) {
-            const modals = ['orderModal', 'galleryModal', 'descriptionModal'];
-            modals.forEach(modalId => {
-                const modal = document.getElementById(modalId);
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        }
-
         // Контакт в Telegram
         function contactTelegram() {
             window.open('https://t.me/Mishanya51480', '_blank');
@@ -1069,22 +1578,25 @@
             try {
                 const message = `💡 *Новая идея от покупателя:*\n\n👤 *Имя:* ${name}\n💭 *Предложение:* ${idea}\n\n🕒 *Время:* ${new Date().toLocaleString('ru-RU')}`;
 
-                // Отправка в Telegram
-                const response = await fetch(`https://api.telegram.org/bot${CONFIG.telegram.botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: CONFIG.telegram.chatId,
-                        text: message,
-                        parse_mode: 'Markdown'
+                // Отправляем всем получателям
+                const sendPromises = CONFIG.telegram.chatIds.map(chatId => 
+                    fetch(`https://api.telegram.org/bot${CONFIG.telegram.botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
                     })
-                });
+                );
 
-                const result = await response.json();
+                const results = await Promise.all(sendPromises);
+                const allSuccess = results.every(result => result.ok);
 
-                if (result.ok) {
+                if (allSuccess) {
                     showNotification('✅ Идея отправлена! Спасибо за ваше предложение ✨', 'success');
                     // Очищаем форму
                     document.getElementById('userName').value = '';
@@ -1117,6 +1629,30 @@
             }, 5000);
         }
 
+        // Закрытие модальных окон
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        document.getElementById('closeGallery').onclick = function() {
+            document.getElementById('galleryModal').style.display = 'none';
+        }
+
+        document.getElementById('closeDescription').onclick = function() {
+            document.getElementById('descriptionModal').style.display = 'none';
+        }
+
+        // Закрытие модальных окон при клике вне их
+        window.onclick = function(event) {
+            const modals = ['orderModal', 'galleryModal', 'descriptionModal', 'cartModal', 'clientFormModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
         // Обработка нажатия клавиш в галерее
         document.addEventListener('keydown', function(event) {
             const galleryModal = document.getElementById('galleryModal');
@@ -1134,14 +1670,26 @@
             if (descriptionModal.style.display === 'block' && event.key === 'Escape') {
                 descriptionModal.style.display = 'none';
             }
+
+            const cartModal = document.getElementById('cartModal');
+            if (cartModal.style.display === 'block' && event.key === 'Escape') {
+                closeCart();
+            }
+
+            const clientFormModal = document.getElementById('clientFormModal');
+            if (clientFormModal.style.display === 'block' && event.key === 'Escape') {
+                closeClientForm();
+            }
         });
 
         // Загрузка при старте
-        document.addEventListener('DOMContentLoaded', loadProducts);
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
+            updateCart();
+        });
     </script>
 </body>
 </html>
-
 
 
 
